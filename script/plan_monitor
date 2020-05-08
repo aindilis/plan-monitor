@@ -1,0 +1,65 @@
+#!perl
+
+our $VERSION = '0.001';
+
+use strict;
+use warnings;
+
+use Mojo::File qw(curfile);
+use lib curfile->dirname->sibling('lib')->to_string;
+use Mojolicious::Commands;
+
+# Start command line interface for application
+Mojolicious::Commands->start_app('FRDCSA::PlanMonitor');
+
+=head1 NAME
+
+plan_monitor - Plan Monitor based on Interactive Behavior Trees
+
+=head1 DESCRIPTION
+
+This software presently does nothing, please do not install it until a
+later version, which we will upload ASAP.  We are releasing early and
+often in order to successfully release this system.  It is part of the
+FRDCSA (https://frdcsa.org), which has historically had trouble being
+released properly.
+
+This system is being written to provide an interactive plan monitor
+system in order to help people execute tasks.  Although the system is
+general purpose, development is being driven by the need for a way to
+handle procedures of daily life in order to cope with the COVID-19
+crisis.  For more information see the enclosed PDF document:
+behavior-tree-task-manager-for-covid-19.pdf
+
+It was originally part of the Free Life Planner project
+(http://freelifeplanner.org), which is based on Catalyst, ShinyCMS and
+Prolog, but as development proceeded it became clear what was needed
+was a real-time web framework.  Also, FLP has not been released to
+CPAN yet, so a lightweight, easily releasable distribution will
+maximize the reach of this application.
+
+=head1 SYNOPSIS
+
+  $ hypnotoad ./script/plan_monitor
+
+=head1 AUTHOR
+
+Andrew John Dougherty
+
+=head1 LICENSE
+
+GPLv3
+
+=head1 INSTALLATION
+
+Using C<cpan>:
+
+    $ cpan FRDCSA::PlanMonitor
+
+Manual install:
+
+    $ perl Makefile.PL
+    $ make
+    $ make install
+
+=cut
