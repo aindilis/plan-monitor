@@ -1,5 +1,5 @@
 % layout 'default';
-% title 'Welcome';
+% title 'IPM';
 <p>
     <!-- 
 	 This page was generated from the template "templates/example/welcome.html.ep"
@@ -15,11 +15,9 @@
 	    <!-- TO DO List -->
 	    <div class="box box-primary">
 		<div class="box-header">
+		    <h4><a href="/logout">Logout</a></h4>
 		    <center>
-			<a href="">Back to Free Life Planner</a>
-			<h3 class="box-title">
-			    <a href="">Interactive Plan Monitor</a>
-			</h3>
+			<h3 class="box-title">Interactive Plan Monitor</h3>
 			<i class="ion ion-clipboard"></i>
 			<h4>Name:
 			    <h1>Name</h1>
@@ -30,7 +28,7 @@
 			<h4>Plan:
 			    <h1>Steps</h1>
 			</h4>
-			<form action="" method="post">
+			<form action="/ipm#index" method="post">
 			    <button type="submit" name="user-response" value="done" id="search-btn" class="btn btn-flat">Done</button>
 			    <button type="submit" name="user-response" value="failed" id="search-btn" class="btn btn-flat">Failed</button>
 			    <button type="submit" name="user-response" value="skipped" id="search-btn" class="btn btn-flat">Skipped</button>
@@ -45,6 +43,9 @@
 			</form>
 		    </center>
 		</div>
+	    </div>
+	    <div>
+		<%= dumper(param('user-response')) %>
 	    </div>
 	    <!-- /.box -->
 	</section>

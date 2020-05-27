@@ -4,6 +4,10 @@ use Mojo::Base 'Mojolicious';
 use Mojo::File qw(curfile);
 use Mojo::Home;
 
+use FRDCSA::PlanMonitor::Model::Users;
+
+use Data::Dumper;
+
 our $VERSION = '0.001';
 
 sub startup {
@@ -40,11 +44,19 @@ sub startup {
   #    );
 
 
+  $self->helper(users => sub { state $users = FRDCSA::PlanMonitor::Model::Users->new });
+
   # Router
   my $r = $self->routes;
+  $r->any('/')->to('login#index')->name('index');
 
-  # Normal route to controller
-  $r->get('/')->to('example#welcome');
+  my $logged_in = $r->under('/')->to('login#logged_in');
+  $logged_in->any(['POST','GET'],'/ipm')->to('ipm#index');
+  # $logged_in->get('/protected')->to('login#protected');
+
+  $r->get('/logout')->to('login#logout');
+
+
 }
 
 1;
