@@ -10,6 +10,9 @@ sub index {
 
   $self->session(user => $user);
   $self->flash(message => 'Thanks for logging in.');
+
+  $self->users->setup($user);
+
   $self->redirect_to('ipm');
 }
 
