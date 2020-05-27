@@ -1,4 +1,4 @@
-# This Makefile is for the plan_monitor extension to perl.
+# This Makefile is for the plan-monitor extension to perl.
 #
 # It was generated automatically by MakeMaker version
 # 7.44 (Revision: 74400) from the contents of
@@ -53,7 +53,7 @@ VENDORLIBEXP = /usr/share/perl5
 AR_STATIC_ARGS = cr
 DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
-NAME = plan_monitor
+NAME = plan-monitor
 NAME_SYM = plan_monitor
 VERSION = 0.01
 VERSION_MACRO = VERSION
@@ -147,8 +147,8 @@ MM_REVISION = 74400
 # PARENT_NAME = NAME without BASEEXT and no trailing :: (eg Foo::Bar)
 # DLBASE  = Basename part of dynamic library. May be just equal BASEEXT.
 MAKE = make
-FULLEXT = plan_monitor
-BASEEXT = plan_monitor
+FULLEXT = plan-monitor
+BASEEXT = monitor
 PARENT_NAME = 
 DLBASE = $(BASEEXT)
 VERSION_FROM = 
@@ -187,12 +187,17 @@ PERL_ARCHIVE_AFTER =
 
 
 TO_INST_PM = lib/FRDCSA/PlanMonitor.pm \
-	lib/FRDCSA/PlanMonitor/Controller/Example.pm \
+	lib/FRDCSA/PlanMonitor/Controller/Ipm.pm \
+	lib/FRDCSA/PlanMonitor/Controller/Login.pm \
+	lib/FRDCSA/PlanMonitor/Model/User.pm \
+	lib/FRDCSA/PlanMonitor/Model/Users.pm \
 	lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf \
 	lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf \
-	lib/FRDCSA/PlanMonitor/public/index.html \
-	lib/FRDCSA/PlanMonitor/templates/example/welcome.html.ep \
-	lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep
+	lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/login/index.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep
 
 
 # --- MakeMaker platform_constants section:
@@ -261,8 +266,8 @@ CI = ci -u
 RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
-DISTNAME = plan_monitor
-DISTVNAME = plan_monitor-0.01
+DISTNAME = plan-monitor
+DISTVNAME = plan-monitor-0.01
 
 
 # --- MakeMaker macro section:
@@ -501,7 +506,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) 'meta-spec:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  url: http://module-build.sourceforge.net/META-spec-v1.4.html' >> META_new.yml
 	$(NOECHO) $(ECHO) '  version: '\''1.4'\''' >> META_new.yml
-	$(NOECHO) $(ECHO) 'name: plan_monitor' >> META_new.yml
+	$(NOECHO) $(ECHO) 'name: plan-monitor' >> META_new.yml
 	$(NOECHO) $(ECHO) 'no_index:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  directory:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    - t' >> META_new.yml
@@ -526,7 +531,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",' >> META_new.json
 	$(NOECHO) $(ECHO) '      "version" : 2' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
-	$(NOECHO) $(ECHO) '   "name" : "plan_monitor",' >> META_new.json
+	$(NOECHO) $(ECHO) '   "name" : "plan-monitor",' >> META_new.json
 	$(NOECHO) $(ECHO) '   "no_index" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '      "directory" : [' >> META_new.json
 	$(NOECHO) $(ECHO) '         "t",' >> META_new.json
@@ -861,15 +866,15 @@ testdb_static :: static pure_all
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="plan_monitor" VERSION="0.01">' > plan_monitor.ppd
-	$(NOECHO) $(ECHO) '    <ABSTRACT></ABSTRACT>' >> plan_monitor.ppd
-	$(NOECHO) $(ECHO) '    <AUTHOR></AUTHOR>' >> plan_monitor.ppd
-	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> plan_monitor.ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Mojolicious::" VERSION="8.40" />' >> plan_monitor.ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-gnu-thread-multi-5.28" />' >> plan_monitor.ppd
-	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> plan_monitor.ppd
-	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> plan_monitor.ppd
-	$(NOECHO) $(ECHO) '</SOFTPKG>' >> plan_monitor.ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="plan-monitor" VERSION="0.01">' > plan-monitor.ppd
+	$(NOECHO) $(ECHO) '    <ABSTRACT></ABSTRACT>' >> plan-monitor.ppd
+	$(NOECHO) $(ECHO) '    <AUTHOR></AUTHOR>' >> plan-monitor.ppd
+	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> plan-monitor.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Mojolicious::" VERSION="8.40" />' >> plan-monitor.ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-gnu-thread-multi-5.28" />' >> plan-monitor.ppd
+	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> plan-monitor.ppd
+	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> plan-monitor.ppd
+	$(NOECHO) $(ECHO) '</SOFTPKG>' >> plan-monitor.ppd
 
 
 # --- MakeMaker pm_to_blib section:
@@ -877,12 +882,17 @@ ppd :
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
 	  'lib/FRDCSA/PlanMonitor.pm' 'blib/lib/FRDCSA/PlanMonitor.pm' \
-	  'lib/FRDCSA/PlanMonitor/Controller/Example.pm' 'blib/lib/FRDCSA/PlanMonitor/Controller/Example.pm' \
+	  'lib/FRDCSA/PlanMonitor/Controller/Ipm.pm' 'blib/lib/FRDCSA/PlanMonitor/Controller/Ipm.pm' \
+	  'lib/FRDCSA/PlanMonitor/Controller/Login.pm' 'blib/lib/FRDCSA/PlanMonitor/Controller/Login.pm' \
+	  'lib/FRDCSA/PlanMonitor/Model/User.pm' 'blib/lib/FRDCSA/PlanMonitor/Model/User.pm' \
+	  'lib/FRDCSA/PlanMonitor/Model/Users.pm' 'blib/lib/FRDCSA/PlanMonitor/Model/Users.pm' \
 	  'lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf' 'blib/lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf' \
 	  'lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf' 'blib/lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf' \
-	  'lib/FRDCSA/PlanMonitor/public/index.html' 'blib/lib/FRDCSA/PlanMonitor/public/index.html' \
-	  'lib/FRDCSA/PlanMonitor/templates/example/welcome.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/example/welcome.html.ep' \
-	  'lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' 
+	  'lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/login/index.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/login/index.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep' 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 

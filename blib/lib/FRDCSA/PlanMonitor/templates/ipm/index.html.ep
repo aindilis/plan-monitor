@@ -1,0 +1,55 @@
+% layout 'default';
+% title 'IPM';
+<p>
+    <!-- 
+	 This page was generated from the template "templates/example/welcome.html.ep"
+	 and the layout "templates/layouts/default.html.ep",
+	 <%= link_to 'click here' => url_for %> to reload the page or
+	 <%= link_to 'here' => '/index.html' %> to move forward to a static page.
+    -->
+
+    <!-- Main row -->
+    <div class="row">
+	<!-- Left col -->
+	<section class="col-lg-6 connectedSortable pull-left">
+	    <!-- TO DO List -->
+	    <div class="box box-primary">
+		<div class="box-header">
+		    <h4><a href="/logout">Logout</a></h4>
+		    <center>
+			<h3 class="box-title">Interactive Plan Monitor</h3>
+			<i class="ion ion-clipboard"></i>
+			<h4>Name:
+			    <h1>Name</h1>
+			</h4>
+			<h4>Step:
+			    <h1>Step</h1>
+			</h4>
+			<h4>Plan:
+			    <h1>Steps</h1>
+			</h4>
+			<form action="/ipm#index" method="post">
+			    <button type="submit" name="user-response" value="done" id="search-btn" class="btn btn-flat">Done</button>
+			    <button type="submit" name="user-response" value="failed" id="search-btn" class="btn btn-flat">Failed</button>
+			    <button type="submit" name="user-response" value="skipped" id="search-btn" class="btn btn-flat">Skipped</button>
+			    <button type="submit" name="user-response" value="postponed" id="search-btn" class="btn btn-flat">Postponed</button>
+			    <br><br>
+			    <!--
+				 <button type="submit" name="user-response" value="modify" id="search-btn" class="btn btn-flat">Modify BTs</button>
+				 <button type="submit" name="user-response" value="editor" id="search-btn" class="btn btn-flat">BT Editor</button>
+				 <br><br>
+			    -->
+			    Behaviors: <input type="text" name="decide-action" size="30" autofocus></input>
+			</form>
+		    </center>
+		</div>
+	    </div>
+	    <div>
+		<%= dumper(param('user-response')) %>
+	    </div>
+	    <!-- /.box -->
+	</section>
+	<!-- /.Left col -->
+
+    </div>
+</p>

@@ -2,23 +2,12 @@ debug.sh
 lib/FRDCSA/PlanMonitor.pm
 lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf
 lib/FRDCSA/PlanMonitor/Controller/Example.pm
-lib/FRDCSA/PlanMonitor/Controller/Ipm.pm
-lib/FRDCSA/PlanMonitor/Controller/Login.pm
 lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf
-lib/FRDCSA/PlanMonitor/Model/User.pm
-lib/FRDCSA/PlanMonitor/Model/Users.pm
 lib/FRDCSA/PlanMonitor/public/index.html
 lib/FRDCSA/PlanMonitor/templates/example/welcome.html.ep
-lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep
 lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep
-lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep
-lib/FRDCSA/PlanMonitor/templates/login/index.html.ep
-lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep
-LICENSE
 Makefile.PL
 MANIFEST			This list of files
-plan_monitor-0.01.tar.gz
-README.md
 script/plan_monitor
 start.sh
 stop.sh

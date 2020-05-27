@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : 2
    },
-   "name" : "plan_monitor",
+   "name" : "plan-monitor",
    "no_index" : {
       "directory" : [
          "t",

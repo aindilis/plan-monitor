@@ -12,7 +12,7 @@ license: unknown
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: '1.4'
-name: plan_monitor
+name: plan-monitor
 no_index:
   directory:
     - t
