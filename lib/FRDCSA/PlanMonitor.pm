@@ -56,6 +56,30 @@ sub startup {
 
   $r->get('/logout')->to('login#logout');
 
+  $r->websocket
+    ('/echo' => sub {
+       my $c = shift;
+
+       # Opened
+       $c->app->log->debug('WebSocket opened');
+
+       # Increase inactivity timeout for connection a bit
+       $c->inactivity_timeout(300);
+
+       # Incoming message
+       $c->on
+	 (message => sub {
+	    my ($c, $msg) = @_;
+	    $c->send("action: $msg");
+	  });
+
+       # Closed
+       $c->on
+	 (finish => sub {
+	    my ($c, $code, $reason) = @_;
+	    $c->app->log->debug("WebSocket closed with status $code");
+	  });
+     });
 }
 
 1;

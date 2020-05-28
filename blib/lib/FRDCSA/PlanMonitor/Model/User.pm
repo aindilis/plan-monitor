@@ -11,10 +11,16 @@ use Data::Dumper;
 has 'username';
 has 'tree';
 
-sub proceed {
+sub BTStart {
   my ( $self ) = @_;
-  my $res = $self->tree->proceed();
-  print Dumper({Res => $res});
+  my $res = $self->tree->Start();
+  print Dumper({BTStartRes => $res});
+}
+
+sub BTStop {
+  my ( $self, $status ) = @_;
+  my $res = $self->tree->Stop(Status => $status);
+  print Dumper({BTStopRes => $res});
 }
 
 1;

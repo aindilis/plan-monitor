@@ -20,7 +20,9 @@ MANIFEST			This list of files
 plan_monitor-0.01.tar.gz
 README.md
 script/plan_monitor
+script/websockets.pl
 start.sh
 stop.sh
 t/basic.t
 to.do
+websockets.sh

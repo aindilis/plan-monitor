@@ -1,6 +1,8 @@
 package FRDCSA::PlanMonitor::Controller::Login;
 use Mojo::Base 'Mojolicious::Controller';
 
+use Data::Dumper;
+
 sub index {
   my $self = shift;
 
@@ -10,7 +12,6 @@ sub index {
 
   $self->session(user => $user);
   $self->flash(message => 'Thanks for logging in.');
-
   $self->users->setup($user);
 
   $self->redirect_to('ipm');
@@ -25,6 +26,8 @@ sub logged_in {
 
 sub logout {
   my $self = shift;
+  print Dumper({Session => $self->session});
+  $self->users->destroy($self->session->{'user'},'success');
   $self->session(expires => 1);
   $self->redirect_to('index');
 }

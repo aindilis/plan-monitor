@@ -28,25 +28,38 @@
 			<h4>Plan:
 			    <h1>Steps</h1>
 			</h4>
-			<form action="/ipm#index" method="post">
-			    <button type="submit" name="user-response" value="done" id="search-btn" class="btn btn-flat">Done</button>
-			    <button type="submit" name="user-response" value="failed" id="search-btn" class="btn btn-flat">Failed</button>
-			    <button type="submit" name="user-response" value="skipped" id="search-btn" class="btn btn-flat">Skipped</button>
-			    <button type="submit" name="user-response" value="postponed" id="search-btn" class="btn btn-flat">Postponed</button>
-			    <br><br>
-			    <!--
-				 <button type="submit" name="user-response" value="modify" id="search-btn" class="btn btn-flat">Modify BTs</button>
-				 <button type="submit" name="user-response" value="editor" id="search-btn" class="btn btn-flat">BT Editor</button>
-				 <br><br>
-			    -->
+			<div>
+			    <button name="user-response" value="done" id="search-btn" class="btn btn-flat" onclick="ws.send('done')">Done</button>
+			    <button name="user-response" value="failed" id="search-btn" class="btn btn-flat" onclick="ws.send('failed')">Failed</button>
+			    <button name="user-response" value="skipped" id="search-btn" class="btn btn-flat" onclick="ws.send('skipped')">Skipped</button>
+			    <button name="user-response" value="postponed" id="search-btn" class="btn btn-flat" onclick="ws.send('postponed')">Postponed</button>
+			</div>
+			<br>
+			<form>
 			    Behaviors: <input type="text" name="decide-action" size="30" autofocus></input>
 			</form>
 		    </center>
 		</div>
 	    </div>
 	    <div>
-		<%= dumper(param('user-response')) %>
+		<script>
+		 var ws = new WebSocket('<%= url_for('echo')->to_abs %>');
+
+
+		 // Incoming messages
+		 ws.onmessage = function (event) {
+		     document.body.innerHTML += event.data + '<br/>';
+		 }
+		 ;
+
+		 // Outgoing messages
+		 /* ws.onopen = function (event) {
+		    window.setInterval(function () { ws.send('Hello Mojo!') }, 1000);
+		    }
+		    ; */
+		</script>
 	    </div>
+
 	    <!-- /.box -->
 	</section>
 	<!-- /.Left col -->
