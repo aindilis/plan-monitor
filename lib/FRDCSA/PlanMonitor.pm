@@ -56,7 +56,6 @@ sub startup {
 
   $r->get('/logout')->to('login#logout');
 
-
 }
 
 1;
