@@ -5,19 +5,9 @@ use Data::Dumper;
 
 sub index {
   my $self = shift;
-  my $user_response = $self->param('user-response');
-  if (defined $user_response) {
-    if ($user_response eq 'done') {
+  my $user = $self->session->{user};
 
-    } elsif ($user_response eq 'failed') {
-
-    } elsif ($user_response eq 'skipped') {
-
-    } elsif ($user_response eq 'postponed') {
-
-    }
-  }
-  # $self->render(msg => 'Welcome to the Mojolicious real-time web framework!');
+  $self->users->users->{$user}->BTStart();
 }
 
 1;

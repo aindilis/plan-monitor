@@ -10,6 +10,17 @@ use Data::Dumper;
 
 our $VERSION = '0.001';
 
+has websockets => sub { {} };
+
+sub plan_monitor_log {
+  my ($self,$controller,$message) = @_;
+  if (exists $self->websockets->{$controller->session->{user}}) {
+    $self->log->debug($message);
+    my $newmessage = 'Sending to '.$controller->session->{user}.': '.$message;
+    $self->websockets->{$controller->session->{user}}->{C}->send($newmessage);
+  }
+}
+
 sub startup {
   my $self = shift;
 
@@ -57,7 +68,6 @@ sub startup {
   $r->get('/logout')->to('login#logout');
 
   $r->websocket('/act')->to('act#index');
-
 }
 
 1;

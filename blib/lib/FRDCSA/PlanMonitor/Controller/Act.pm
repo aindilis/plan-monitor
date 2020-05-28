@@ -6,16 +6,19 @@ use Mojo::JSON qw(decode_json encode_json);
 
 use Data::Dumper;
 
+has send_message => 0;
+
 my $controller;
 my $tx;
 
 sub index {
   my ($c) = @_;
-
-  $controller = $c;
-  $tx = $c->tx;
-
   $c->app->log->debug('WebSocket opened');
+  $c->app->websockets->{$c->session->{user}} =
+    {
+     C => $c,
+     TX => $c->tx,
+    };
 
   # Increase inactivity timeout for connection a bit
   $c->inactivity_timeout(300);
@@ -24,7 +27,7 @@ sub index {
   $c->on
     (message => sub {
        my ($c, $json) = @_;
-       print Dumper({JSON => $json});
+       $c->app->log->debug('JSON: '.$json);
        my $hash = decode_json($json);
        # this is where we handle the state update
        # node name, $action
@@ -39,12 +42,13 @@ sub index {
        # 	  ),
        # 	 );
        # do a response based on this
-       Mojo::IOLoop->timer
-	   (2 => sub ($c) {
-	      $c->send('hello there');
-	    });
        $c->send('action: '.$hash->{action});
      });
+
+  # Mojo::IOLoop->timer
+  # 	   (2 => sub ($c) {
+  # 	      $c->send('hello there');
+  # 	    });
 
   # Closed
   $c->on
@@ -52,8 +56,6 @@ sub index {
        my ($c, $code, $reason) = @_;
        $c->app->log->debug("WebSocket closed with status $code");
      });
-
-  # $c->users->{$c->session->{username}}->
 }
 
 1;

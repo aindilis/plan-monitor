@@ -49,6 +49,7 @@ sub setup {
     );
   my $bt = FRDCSA::BehaviorTree->new
     (
+     Controller => $c,
      Blackboard => FRDCSA::BehaviorTree::Blackboard->new(),
      Root => FRDCSA::BehaviorTree::Node::Root->new
      (
@@ -92,8 +93,7 @@ sub setup {
      username => $username,
      tree => $bt,
     );
-  print Dumper({User => $self->users->{$username}});
-  $self->users->{$username}->BTStart($c);
+  $c->app->log->debug('User: '.$username); # Dumper($self->users->{$username}));
 }
 
 sub destroy {
