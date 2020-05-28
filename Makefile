@@ -187,6 +187,7 @@ PERL_ARCHIVE_AFTER =
 
 
 TO_INST_PM = lib/FRDCSA/PlanMonitor.pm \
+	lib/FRDCSA/PlanMonitor/Controller/Act.pm \
 	lib/FRDCSA/PlanMonitor/Controller/Ipm.pm \
 	lib/FRDCSA/PlanMonitor/Controller/Login.pm \
 	lib/FRDCSA/PlanMonitor/Model/User.pm \
@@ -882,6 +883,7 @@ ppd :
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
 	  'lib/FRDCSA/PlanMonitor.pm' 'blib/lib/FRDCSA/PlanMonitor.pm' \
+	  'lib/FRDCSA/PlanMonitor/Controller/Act.pm' 'blib/lib/FRDCSA/PlanMonitor/Controller/Act.pm' \
 	  'lib/FRDCSA/PlanMonitor/Controller/Ipm.pm' 'blib/lib/FRDCSA/PlanMonitor/Controller/Ipm.pm' \
 	  'lib/FRDCSA/PlanMonitor/Controller/Login.pm' 'blib/lib/FRDCSA/PlanMonitor/Controller/Login.pm' \
 	  'lib/FRDCSA/PlanMonitor/Model/User.pm' 'blib/lib/FRDCSA/PlanMonitor/Model/User.pm' \

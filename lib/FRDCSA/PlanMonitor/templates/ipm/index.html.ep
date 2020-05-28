@@ -21,6 +21,7 @@
 			<i class="ion ion-clipboard"></i>
 			<h4>Name:
 			    <h1>Name</h1>
+			    1
 			</h4>
 			<h4>Step:
 			    <h1>Step</h1>
@@ -29,10 +30,16 @@
 			    <h1>Steps</h1>
 			</h4>
 			<div>
-			    <button name="user-response" value="done" id="search-btn" class="btn btn-flat" onclick="ws.send('done')">Done</button>
-			    <button name="user-response" value="failed" id="search-btn" class="btn btn-flat" onclick="ws.send('failed')">Failed</button>
-			    <button name="user-response" value="skipped" id="search-btn" class="btn btn-flat" onclick="ws.send('skipped')">Skipped</button>
-			    <button name="user-response" value="postponed" id="search-btn" class="btn btn-flat" onclick="ws.send('postponed')">Postponed</button>
+			  <script>
+			    var done = {"node":"1","action":"done"};
+			    var failed = {"node":"1","action":"failed"};
+			    var skipped = {"node":"1","action":"skipped"};
+			    var postponed = {"node":"1","action":"postponed"};
+			  </script>
+			    <button name="user-response" value="done" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(done))">Done</button>
+			    <button name="user-response" value="failed" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(failed))">Failed</button>
+			    <button name="user-response" value="skipped" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(skipped))">Skipped</button>
+			    <button name="user-response" value="postponed" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(postponed))">Postponed</button>
 			</div>
 			<br>
 			<form>
@@ -43,8 +50,7 @@
 	    </div>
 	    <div>
 		<script>
-		 var ws = new WebSocket('<%= url_for('echo')->to_abs %>');
-
+		 var ws = new WebSocket('<%= url_for('act')->to_abs %>');
 
 		 // Incoming messages
 		 ws.onmessage = function (event) {

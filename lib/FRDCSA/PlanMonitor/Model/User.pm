@@ -4,15 +4,20 @@ use Mojo::Base -base;
 use strict;
 use warnings;
 
+use Mojo::AsyncAwait;
 use Mojo::Util qw(secure_compare);
+
+use Time::HiRes qw(usleep);
 
 use Data::Dumper;
 
 has 'username';
 has 'tree';
 
+my $websocket;
+
 sub BTStart {
-  my ( $self ) = @_;
+  my ( $self, $c ) = @_;
   my $res = $self->tree->Start();
   print Dumper({BTStartRes => $res});
 }
