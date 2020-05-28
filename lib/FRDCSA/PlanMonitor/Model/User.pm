@@ -14,23 +14,16 @@ has 'username';
 has 'tree';
 
 sub BTStart {
-  my ( $self ) = @_;
-  my $res = $self->tree->Start();
-  if ($res) {
-    $self->tree->Log(Message => 'BTStartRes: '.$res);
-  } else {
-    $self->tree->Log(Message => 'BTStartRes.');
+  my ( $self, %args ) = @_;
+  if ($args{Controller}) {
+    $self->tree->Controller($args{Controller});
   }
+  $self->tree->Start();
 }
 
 sub BTStop {
-  my ( $self ) = @_;
-  my $res = $self->tree->Stop();
-  if ($res) {
-    $self->tree->Log(Message => 'BTStopRes: '.$res);
-  } else {
-    $self->tree->Log(Message => 'BTStopRes.');
-  }
+  my ( $self, %args ) = @_;
+  $self->tree->Stop();
 }
 
 1;

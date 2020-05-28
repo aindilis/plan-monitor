@@ -10,7 +10,7 @@ use FRDCSA::BehaviorTree;
 use FRDCSA::BehaviorTree::Blackboard;
 use FRDCSA::BehaviorTree::Node::Root;
 use FRDCSA::BehaviorTree::Node::Sequence;
-use FRDCSA::BehaviorTree::Node::LeafTask;
+use FRDCSA::BehaviorTree::Node::UserTask;
 
 use Data::Dumper;
 
@@ -57,31 +57,31 @@ sub setup {
 		   FRDCSA::BehaviorTree::Node::Sequence->new
 		   (Children =>
 		    [
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Make shopping list'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Print out shopping and instruction lists'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Clear off dining room table'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Eat beforehand'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Make all preparations'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Wait until 11 30 pm to leave'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Put gloves on before leaving house'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Bring water bottles to refill'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Wear masks'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Leave house'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Get in car'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Check gas level'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Drive to Walmart'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Are lots of people there'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Are they out of inventory'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Walk into Walmart'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Start shopping'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Get extra 5 gal jugs'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Use self checkout'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Finish shopping'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Drive home'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Put food in staging area'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Decontaminate food with bleach solution'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Remove gloves and masks'),
-		     FRDCSA::BehaviorTree::Node::LeafTask->new(%args, Description => 'Dispose properly of gloves and masks'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Make shopping list'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Print out shopping and instruction lists'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Clear off dining room table'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Eat beforehand'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Make all preparations'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Wait until 11 30 pm to leave'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Put gloves on before leaving house'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Bring water bottles to refill'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Wear masks'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Leave house'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Get in car'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Check gas level'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Drive to Walmart'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Are lots of people there'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Are they out of inventory'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Walk into Walmart'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Start shopping'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Get extra 5 gal jugs'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Use self checkout'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Finish shopping'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Drive home'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Put food in staging area'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Decontaminate food with bleach solution'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Remove gloves and masks'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Dispose properly of gloves and masks'),
 		    ],
 		   ),
 		  ],

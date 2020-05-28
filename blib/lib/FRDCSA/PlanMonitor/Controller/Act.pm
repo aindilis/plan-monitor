@@ -33,16 +33,21 @@ sub index {
        # node name, $action
        # update the bahavior tree
 
-       my $state_update = [input => $hash];
-       # my @requests = $c->users->{$c->session->{username}}->tree->Blackboard->UpdateState
-       # 	 (
-       # 	  StateUpdate => FRDCSA::BehaviorTree::Blackboard::StateUpdate->new
-       # 	  (
-       # 	   Update => $hash,
-       # 	  ),
-       # 	 );
-       # do a response based on this
-       $c->send('action: '.$hash->{action});
+       if ($hash->{action} eq 'startup') {
+	 $c->send('action: '.$hash->{action});
+	 $c->users->users->{$c->session->{user}}->BTStart(Controller => $c);
+       } else {
+	 my $state_update = [input => $hash];
+	 # my @requests = $c->users->{$c->session->{username}}->tree->Blackboard->UpdateState
+	 # 	 (
+	 # 	  StateUpdate => FRDCSA::BehaviorTree::Blackboard::StateUpdate->new
+	 # 	  (
+	 # 	   Update => $hash,
+	 # 	  ),
+	 # 	 );
+	 # do a response based on this
+	 $c->send('action: '.$hash->{action});
+       }
      });
 
   # Mojo::IOLoop->timer

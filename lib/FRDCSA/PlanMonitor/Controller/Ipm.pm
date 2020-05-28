@@ -6,8 +6,6 @@ use Data::Dumper;
 sub index {
   my $self = shift;
   my $user = $self->session->{user};
-
-  $self->users->users->{$user}->BTStart();
 }
 
 1;

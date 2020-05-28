@@ -58,11 +58,12 @@
 		 }
 		 ;
 
+		 var startupmessage = {"action":"startup"};
 		 // Outgoing messages
-		 /* ws.onopen = function (event) {
-		    window.setInterval(function () { ws.send('Hello Mojo!') }, 1000);
-		    }
-		    ; */
+		 ws.onopen = function (event) {
+                     ws.send(JSON.stringify(startupmessage))
+		 }
+		 ;
 		</script>
 	    </div>
 
