@@ -15,9 +15,8 @@ has websockets => sub { {} };
 sub plan_monitor_log {
   my ($self,$controller,$message) = @_;
     if ($message and exists $self->websockets->{$controller->session->{user}}) {
-    $self->log->debug($message);
-    my $newmessage = 'Sending to '.$controller->session->{user}.': '.$message;
-    $self->websockets->{$controller->session->{user}}->{C}->send($newmessage);
+    $self->log->debug('sending to '.$controller->session->{user}.': '.$message);
+    $self->websockets->{$controller->session->{user}}->{C}->send($message);
   }
 }
 

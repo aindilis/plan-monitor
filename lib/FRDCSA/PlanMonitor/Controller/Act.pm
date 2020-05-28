@@ -21,7 +21,7 @@ sub index {
     };
 
   # Increase inactivity timeout for connection a bit
-  $c->inactivity_timeout(300);
+  $c->inactivity_timeout(1000000);
 
   # Incoming message
   $c->on
@@ -36,8 +36,9 @@ sub index {
        if ($hash->{action} eq 'startup') {
 	 $c->send('action: '.$hash->{action});
 	 $c->users->users->{$c->session->{user}}->BTStart(Controller => $c);
+       } elsif (defined $hash->{action}) {
+	 $c->send('Log: '.$hash->{action});
        } else {
-	 my $state_update = [input => $hash];
 	 # my @requests = $c->users->{$c->session->{username}}->tree->Blackboard->UpdateState
 	 # 	 (
 	 # 	  StateUpdate => FRDCSA::BehaviorTree::Blackboard::StateUpdate->new

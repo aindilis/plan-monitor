@@ -19,23 +19,16 @@
 		    <center>
 			<h3 class="box-title">Interactive Plan Monitor</h3>
 			<i class="ion ion-clipboard"></i>
-			<h4>Name:
-			    <h1>Name</h1>
-			    1
-			</h4>
-			<h4>Step:
-			    <h1>Step</h1>
-			</h4>
-			<h4>Plan:
-			    <h1>Steps</h1>
-			</h4>
+			<b>Task:</b> <span id="task">No Task Defined</div></span><br>
+		    </center>
+		    <center>
 			<div>
-			  <script>
-			    var done = {"node":"1","action":"done"};
-			    var failed = {"node":"1","action":"failed"};
-			    var skipped = {"node":"1","action":"skipped"};
-			    var postponed = {"node":"1","action":"postponed"};
-			  </script>
+			    <script>
+			     var done = {"node":"1","action":"done"};
+			     var failed = {"node":"1","action":"failed"};
+			     var skipped = {"node":"1","action":"skipped"};
+			     var postponed = {"node":"1","action":"postponed"};
+			    </script>
 			    <button name="user-response" value="done" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(done))">Done</button>
 			    <button name="user-response" value="failed" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(failed))">Failed</button>
 			    <button name="user-response" value="skipped" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(skipped))">Skipped</button>
@@ -54,7 +47,15 @@
 
 		 // Incoming messages
 		 ws.onmessage = function (event) {
-		     document.body.innerHTML += event.data + '<br/>';
+		     var re1 = /Log: /;
+		     if (re1.test(event.data) == true) {
+			 document.body.innerHTML += event.data + '<br/>';
+		     }
+		     var re2 = /JSON: /;
+		     if (re2.test(event.data) == true) {
+			 var taskElement = document.getElementById('task');
+			 taskElement.textContent = event.data;
+		     }
 		 }
 		 ;
 
@@ -64,6 +65,7 @@
                      ws.send(JSON.stringify(startupmessage))
 		 }
 		 ;
+
 		</script>
 	    </div>
 
