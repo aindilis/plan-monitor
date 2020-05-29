@@ -49,7 +49,7 @@ sub setup {
     );
   my $bt = FRDCSA::BehaviorTree->new
     (
-     Controller => $c,
+     # Controller => $c,
      Blackboard => FRDCSA::BehaviorTree::Blackboard->new(),
      Root => FRDCSA::BehaviorTree::Node::Root->new
      (

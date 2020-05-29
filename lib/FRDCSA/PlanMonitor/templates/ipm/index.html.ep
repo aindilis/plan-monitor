@@ -19,57 +19,66 @@
 		    <center>
 			<h3 class="box-title">Interactive Plan Monitor</h3>
 			<i class="ion ion-clipboard"></i>
-			<b>Task:</b> <span id="task">No Task Defined</div></span><br>
-		    </center>
-		    <center>
-			<div>
+			<div style="text-align: center;">
+			    <b>Task Name:</b> <span id="task-name" align="center">No Task Defined</span><br>
+			    <b>Description:</b> <span id="task-description" align="center">No Task Defined</span><br><br>
 			    <script>
-			     var done = {"node":"1","action":"done"};
-			     var failed = {"node":"1","action":"failed"};
-			     var skipped = {"node":"1","action":"skipped"};
-			     var postponed = {"node":"1","action":"postponed"};
+			     var done = {"action":"update","value":"done"};
+			     var failed = {"action":"update","value":"failed"};
+			     var skipped = {"action":"update","value":"skipped"};
+			     var postponed = {"action":"update","value":"postponed"};
 			    </script>
-			    <button name="user-response" value="done" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(done))">Done</button>
-			    <button name="user-response" value="failed" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(failed))">Failed</button>
-			    <button name="user-response" value="skipped" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(skipped))">Skipped</button>
-			    <button name="user-response" value="postponed" id="search-btn" class="btn btn-flat" onclick="ws.send(JSON.stringify(postponed))">Postponed</button>
+			    <button name="user-response" value="done" id="search-btn" class="btn btn-flat" onclick="ws.send(DoAction(done))">Done</button>
+			    <button name="user-response" value="failed" id="search-btn" class="btn btn-flat" onclick="ws.send(DoAction(failed))">Failed</button>
+			    <button name="user-response" value="skipped" id="search-btn" class="btn btn-flat" onclick="ws.send(DoAction(skipped))">Skipped</button>
+			    <button name="user-response" value="postponed" id="search-btn" class="btn btn-flat" onclick="ws.send(DoAction(postponed))">Postponed</button>
 			</div>
 			<br>
 			<form>
 			    Behaviors: <input type="text" name="decide-action" size="30" autofocus></input>
 			</form>
 		    </center>
-		</div>
 	    </div>
-	    <div>
-		<script>
-		 var ws = new WebSocket('<%= url_for('act')->to_abs %>');
+    </div>
+    <div>
+	<script>
+	 var ws = new WebSocket('<%= url_for('act')->to_abs %>');
 
-		 // Incoming messages
-		 ws.onmessage = function (event) {
-		     var re1 = /Log: /;
-		     if (re1.test(event.data) == true) {
-			 document.body.innerHTML += event.data + '<br/>';
-		     }
-		     var re2 = /JSON: /;
-		     if (re2.test(event.data) == true) {
-			 var taskElement = document.getElementById('task');
-			 taskElement.textContent = event.data;
-		     }
-		 }
-		 ;
+	 // Incoming messages
+	 ws.onmessage = function (event) {
+	     var re1 = /Log: /;
+	     if (re1.test(event.data) == true) {
+		 document.body.innerHTML += event.data + '<br/>';
+	     }
+	     var re2 = /JSON: /;
+	     if (re2.test(event.data) == true) {
+		 var re3 = /JSON: (.+)/;
+		 var array = re3.exec(event.data);
+		 var message = JSON.parse(array[1]);
+		 var taskNameElement = document.getElementById('task-name');
+		 taskNameElement.textContent = message.Name;
+		 var taskDescriptionElement = document.getElementById('task-description');
+		 taskDescriptionElement.textContent = message.Description;
+	     }
+	 }
+	 ;
 
-		 var startupmessage = {"action":"startup"};
-		 // Outgoing messages
-		 ws.onopen = function (event) {
-                     ws.send(JSON.stringify(startupmessage))
-		 }
-		 ;
+	 var startupmessage = {"action":"startup"};
+	 // Outgoing messages
+	 ws.onopen = function (event) {
+             ws.send(JSON.stringify(startupmessage))
+	 }
+	 ;
 
-		</script>
-	    </div>
+	 function DoAction(json) {
+	     var taskNameElement = document.getElementById('task-name');
+	     json.name = taskNameElement.textContent;
+	     return JSON.stringify(json);
+	 }
+	</script>
+    </div>
 
-	    <!-- /.box -->
+    <!-- /.box -->
 	</section>
 	<!-- /.Left col -->
 

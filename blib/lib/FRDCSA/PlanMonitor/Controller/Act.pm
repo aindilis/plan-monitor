@@ -32,22 +32,23 @@ sub index {
        # this is where we handle the state update
        # node name, $action
        # update the bahavior tree
-
        if ($hash->{action} eq 'startup') {
-	 $c->send('action: '.$hash->{action});
+	 $c->send('Log: '.$hash->{action});
 	 $c->users->users->{$c->session->{user}}->BTStart(Controller => $c);
        } elsif (defined $hash->{action}) {
-	 $c->send('Log: '.$hash->{action});
-       } else {
+	 $c->send('Log: '.$hash->{action}.':'.$hash->{value});
+	 # now process the action
 	 # my @requests = $c->users->{$c->session->{username}}->tree->Blackboard->UpdateState
-	 # 	 (
-	 # 	  StateUpdate => FRDCSA::BehaviorTree::Blackboard::StateUpdate->new
-	 # 	  (
-	 # 	   Update => $hash,
-	 # 	  ),
-	 # 	 );
+	 #   (
+	 #    StateUpdate => FRDCSA::BehaviorTree::Blackboard::StateUpdate->new
+	 #    (
+	 #     Update => $hash,
+	 #    ),
+	 #   );
 	 # do a response based on this
-	 $c->send('action: '.$hash->{action});
+	 # $c->send('Log: '.$hash->{action}.':'.$hash->{value});
+       } else {
+	 # $c->send();
        }
      });
 
