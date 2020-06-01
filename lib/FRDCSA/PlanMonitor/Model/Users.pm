@@ -38,15 +38,6 @@ sub check {
 sub setup {
   my ($self, $c, $username) = @_;
   print "Setting up $username\n";
-  my %args =
-    (
-     StartCallback => sub {
-       # send out riders, gondor will answer
-
-       # when an action starts, send a notification via websockets to
-       # the client, to display that node
-     },
-    );
   my $bt = FRDCSA::BehaviorTree->new
     (
      # Controller => $c,
@@ -57,37 +48,36 @@ sub setup {
 		   FRDCSA::BehaviorTree::Node::Sequence->new
 		   (Children =>
 		    [
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Make shopping list'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Print out shopping and instruction lists'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Clear off dining room table'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Eat beforehand'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Make all preparations'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Wait until 11 30 pm to leave'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Put gloves on before leaving house'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Bring water bottles to refill'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Wear masks'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Leave house'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Get in car'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Check gas level'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Drive to Walmart'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Are lots of people there'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Are they out of inventory'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Walk into Walmart'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Start shopping'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Get extra 5 gal jugs'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Use self checkout'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Finish shopping'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Drive home'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Put food in staging area'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Decontaminate food with bleach solution'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Remove gloves and masks'),
-		     FRDCSA::BehaviorTree::Node::UserTask->new(%args, Description => 'Dispose properly of gloves and masks'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Make shopping list'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Print out shopping and instruction lists'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Clear off dining room table'),
+		     FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Eat beforehand'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Make all preparations'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Wait until 11 30 pm to leave'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Put gloves on before leaving house'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Bring water bottles to refill'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Wear masks'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Leave house'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Get in car'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Check gas level'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Drive to Walmart'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Are lots of people there'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Are they out of inventory'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Walk into Walmart'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Start shopping'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Get extra 5 gal jugs'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Use self checkout'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Finish shopping'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Drive home'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Put food in staging area'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Decontaminate food with bleach solution'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Remove gloves and masks'),
+		     # FRDCSA::BehaviorTree::Node::UserTask->new(Description => 'Dispose properly of gloves and masks'),
 		    ],
 		   ),
 		  ],
      ),
     );
-
   $self->users->{$username} = FRDCSA::PlanMonitor::Model::User->new
     (
      username => $username,
