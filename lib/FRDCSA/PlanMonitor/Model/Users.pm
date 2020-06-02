@@ -88,7 +88,7 @@ sub setup {
 
 sub destroy {
   my ($self, $username, $status) = @_;
-  $self->users->{$username}->BTStop($status);
+  $self->users->{$username}->BTStop();
 }
 
 1;

@@ -44,6 +44,7 @@
 	<script>
 	 var ws = new WebSocket('<%= url_for('act')->to_abs %>');
 
+
 	 // Incoming messages
 	 ws.onmessage = function (event) {
 	     var re1 = /Log: /;

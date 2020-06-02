@@ -37,6 +37,8 @@ sub index {
 	 $c->users->users->{$c->session->{user}}->BTStart(Controller => $c);
        } elsif (defined $hash->{action}) {
 	 $c->send('Log: '.$hash->{action}.':'.$hash->{value});
+	 $c->users->users->{$c->session->{user}}->tree->Nodes->{$hash->{name}}->UserFeedback($hash);
+	 $c->users->users->{$c->session->{user}}->tree->Root->Tick();
 	 # now process the action
 	 # my @requests = $c->users->{$c->session->{username}}->tree->Blackboard->UpdateState
 	 #   (
