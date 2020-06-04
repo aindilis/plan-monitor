@@ -1,3 +1,11 @@
+(https://metacpan.org/pod/Mojolicious::Plugin::Mobi)
+(https://metacpan.org/pod/Mojolicious::Plugin::BrowserDetect)
+
+(make sounds play when there are push notifications, however we
+ can do that)
+
+(have a timer node)
+
 (write tests for FRDCSA::BehaviorTree and FRDCSA::PlanMonitor)
 
 (???mojo generate backend FRDCSA::PlanMonitor::Backend::???)

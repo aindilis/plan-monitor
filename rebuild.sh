@@ -1,8 +1,7 @@
 #!/bin/sh
 
 clean-emacs-backups -r
-rm Makefile.PL
-rm Makefile
+make clean
 mojo generate makefile
 perl Makefile.PL
 make test

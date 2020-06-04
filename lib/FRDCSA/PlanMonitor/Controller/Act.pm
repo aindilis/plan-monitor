@@ -31,24 +31,15 @@ sub index {
        my $hash = decode_json($json);
        # this is where we handle the state update
        # node name, $action
-       # update the bahavior tree
+       # update the behavior tree
        if ($hash->{action} eq 'startup') {
 	 $c->send('Log: '.$hash->{action});
 	 $c->users->users->{$c->session->{user}}->BTStart(Controller => $c);
        } elsif (defined $hash->{action}) {
 	 $c->send('Log: '.$hash->{action}.':'.$hash->{value});
+	 # now process the action
 	 $c->users->users->{$c->session->{user}}->tree->Nodes->{$hash->{name}}->UserFeedback($hash);
 	 $c->users->users->{$c->session->{user}}->tree->Root->Tick();
-	 # now process the action
-	 # my @requests = $c->users->{$c->session->{username}}->tree->Blackboard->UpdateState
-	 #   (
-	 #    StateUpdate => FRDCSA::BehaviorTree::Blackboard::StateUpdate->new
-	 #    (
-	 #     Update => $hash,
-	 #    ),
-	 #   );
-	 # do a response based on this
-	 # $c->send('Log: '.$hash->{action}.':'.$hash->{value});
        } else {
 	 # $c->send();
        }
