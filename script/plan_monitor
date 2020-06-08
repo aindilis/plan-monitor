@@ -23,11 +23,10 @@ interactive behavior tree plan monitor.
 
 =head1 SYNOPSIS
 
-This system will take
-recommendations (such as for instance the CDC/WHO's guidelines related
-to the COVID-19 pandemic) compiled into a behavior tree specification,
-an interactively walks people through tasks most likely a mobile
-phone's web-browser.
+This system will take recommendations (such as for instance the
+CDC/WHO's guidelines related to the COVID-19 pandemic) compiled into a
+behavior tree specification, an interactively walks people through
+tasks most likely a mobile phone's web-browser.
 
 Eventually, the user will be able to enter into the interface a task
 such as 'go to the grocery store' and the corresponding procedure wll
@@ -39,10 +38,10 @@ model, which the user will be walked through.  We are working to
 expand the kinds of behavior tree nodes available, the loading and
 context switching mechanism, etc.
 
-We are releasing early and
-often in order to successfully release this system.  It is part of the
-FRDCSA (https://frdcsa.org), but designed to be independent of any
-existing (unreleased) FRDCSA libraries to make it easier to install.
+We are releasing early and often in order to successfully release this
+system.  It is part of the FRDCSA (https://frdcsa.org), but designed
+to be independent of any existing (unreleased) FRDCSA libraries to
+make it easier to install.
 
 =head1 AUTHOR
 

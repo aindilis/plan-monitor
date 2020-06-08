@@ -1,21 +1,26 @@
 # plan-monitor
-Compile tasks of daily living into Behavior Trees and interactively executes them.  Pure Perl using Mojolicious.
+This software presently implements a barebones real-time web-based
+interactive behavior tree plan monitor.
 
-This software presently does nothing, please do not install it until a
-later version, which we will upload ASAP.  We are releasing early and
+This system will take recommendations (such as for instance the
+CDC/WHO's guidelines related to the COVID-19 pandemic) compiled into a
+behavior tree specification, an interactively walks people through
+tasks most likely a mobile phone's web-browser.
+
+Eventually, the user will be able to enter into the interface a task
+such as 'go to the grocery store' and the corresponding procedure wll
+be found.  The user will then be walked through this procedure, like
+an interactive checklist that can branch based on results of tasks.
+
+Currently, there is a default behavior tree specified in the Users
+model, which the user will be walked through.  We are working to
+expand the kinds of behavior tree nodes available, the loading and
+context switching mechanism, etc.
+
+We are releasing early and
 often in order to successfully release this system.  It is part of the
-FRDCSA (https://frdcsa.org), which has historically had trouble being
-released properly.                                                                                                                                                                                                                                                                                                             
-
-This system will take recommendations such as for instance the
-CDC/WHO's guidelines related to the COVID-19 pandemic, and compiles
-them into a Behavior Tree specification that can interactively walk
-people through tasks via something like a mobile phone's web-browser.
-
-For instance, the user enters into the interface a task such as 'go to
-the grocery store'.  The corresponding procedure is found, and the
-user is walked through this procedure, like an interactive checklist
-that can branch based on results of tasks.
+FRDCSA (https://frdcsa.org), but designed to be independent of any
+existing (unreleased) FRDCSA libraries to make it easier to install.
 
 For more info on how this is supposed to work see this paper:
 

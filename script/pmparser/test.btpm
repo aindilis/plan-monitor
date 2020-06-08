@@ -1,0 +1,17 @@
+ensure_through_door ->
+	walk_to_door,
+	ensure_door_open,
+	walk_through_door,
+	close_door
+	.
+
+ensure_door_open >>
+	open_door,
+	unlock_and_open_door,
+	smash_door
+	.
+
+unlock_and_open_door ->
+	unlock_door,
+	open_door
+	.

@@ -20,10 +20,16 @@ LICENSE
 Makefile.PL
 MANIFEST			This list of files
 plan-monitor-0.01.tar.gz
+plan-monitor.el
 plan_monitor-0.01.tar.gz
 README.md
 rebuild.sh
 script/plan_monitor
+script/pmparser/old/parse-xml.pl
+script/pmparser/parse-xml.pl
+script/pmparser/pmparser
+script/pmparser/PMParser.pm
+script/pmparser/test.btpm
 script/websockets.pl
 start.sh
 stop.sh
