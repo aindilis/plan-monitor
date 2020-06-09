@@ -25,3 +25,7 @@ existing (unreleased) FRDCSA libraries to make it easier to install.
 For more info on how this is supposed to work see this paper:
 
 https://github.com/aindilis/plan-monitor/blob/master/lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf
+
+And here is a video of an earlier version in action:
+
+https://frdcsa.org/~andrewdo/projects/plan-monitor.webm
