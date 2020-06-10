@@ -29,3 +29,23 @@ https://github.com/aindilis/plan-monitor/blob/master/lib/FRDCSA/PlanMonitor/beha
 And here is a video of an earlier version in action:
 
 https://frdcsa.org/~andrewdo/projects/plan-monitor.webm
+
+# Installation
+
+Please note these install instructions will be improved when the system has been properly released on CPAN.
+
+First download packages
+
+```
+sudo cpanm https://github.com/aindilis/plan-monitor/raw/master/plan-monitor-0.01.tar.gz
+sudo cpanm https://github.com/aindilis/perl-btpm/raw/master/perl-btpm-0.01.tar.gz
+sudo cpanm https://github.com/aindilis/perl-btsk/blob/master/perl-btsk-0.01.tar.gz 
+```
+
+Then install all dependencies (e.g. sudo cpanm Mojolicious; sudo cpanm Class::MethodMaker; etc)
+
+Then, make sure you have the debug.sh script from the https://github.com/aindilis/plan-monitor/ repository, and run:
+
+```
+./debug.sh
+```
