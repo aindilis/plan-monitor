@@ -42,9 +42,9 @@ sudo cpanm https://github.com/aindilis/perl-btpm/raw/master/perl-btpm-0.01.tar.g
 sudo cpanm https://github.com/aindilis/perl-btsk/blob/master/perl-btsk-0.01.tar.gz 
 ```
 
-Then install all dependencies (e.g. sudo cpanm Mojolicious; sudo cpanm Class::MethodMaker; etc)
+Then install all dependencies (e.g. sudo cpanm Mojolicious; sudo cpanm Class::MethodMaker; etc).  I don't yet have the list of all dependencies ready.
 
-Then, make sure you have the debug.sh script from the https://github.com/aindilis/plan-monitor/ repository, and run:
+Then, clone the https://github.com/aindilis/plan-monitor/ repository, and in it's root directory, run:
 
 ```
 ./debug.sh
