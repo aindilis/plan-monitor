@@ -1,3 +1,12 @@
+(for packaging for CPAN:
+ (https://metacpan.org/pod/mbtiny)
+ (https://metacpan.org/pod/Minilla)
+ )
+
+(add acyclic checker from Task1)
+
+(use )
+
 (use https://metacpan.org/pod/Test::Mojo::Role::Selenium if
  needed to test websockets and clicking, etc)
 

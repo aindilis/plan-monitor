@@ -5,7 +5,7 @@ interactive behavior tree plan monitor.
 This system will take recommendations (such as for instance the
 CDC/WHO's guidelines related to the COVID-19 pandemic) compiled into a
 behavior tree specification, an interactively walks people through
-tasks most likely a mobile phone's web-browser.
+tasks most likely on a mobile phone's web-browser.
 
 Eventually, the user will be able to enter into the interface a task
 such as 'go to the grocery store' and the corresponding procedure wll
