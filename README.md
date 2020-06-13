@@ -4,8 +4,8 @@ interactive behavior tree plan monitor.
 
 This system will take recommendations (such as for instance the
 CDC/WHO's guidelines related to the COVID-19 pandemic) compiled into a
-behavior tree specification, an interactively walks people through
-tasks most likely on a mobile phone's web-browser.
+behavior tree specification, and interactively walks people through
+tasks most likely from a mobile phone's web-browser.
 
 Eventually, the user will be able to enter into the interface a task
 such as 'go to the grocery store' and the corresponding procedure wll
@@ -25,3 +25,31 @@ existing (unreleased) FRDCSA libraries to make it easier to install.
 For more info on how this is supposed to work see this paper:
 
 https://github.com/aindilis/plan-monitor/blob/master/lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf
+
+Here are the links from that paper:
+
+https://frdcsa.org/bts-covid-19/links.html
+
+And here is a video of an earlier version in action:
+
+https://frdcsa.org/~andrewdo/projects/plan-monitor.webm
+
+# Installation
+
+Please note these install instructions will be improved when the system has been properly released on CPAN.
+
+First download packages
+
+```
+sudo cpanm https://github.com/aindilis/plan-monitor/raw/master/plan-monitor-0.01.tar.gz
+sudo cpanm https://github.com/aindilis/perl-btpm/raw/master/perl-btpm-0.01.tar.gz
+sudo cpanm https://github.com/aindilis/perl-btsk/blob/master/perl-btsk-0.01.tar.gz 
+```
+
+Then install all dependencies (e.g. sudo cpanm Mojolicious; sudo cpanm Class::MethodMaker; etc).  I don't yet have the list of all dependencies ready.
+
+Then, clone the https://github.com/aindilis/plan-monitor/ repository, and in it's root directory, run:
+
+```
+./debug.sh
+```
