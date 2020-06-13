@@ -40,7 +40,9 @@ sub startup {
 
 
   # Load configuration from hash returned by config file
+  $self->plugin('Mobi');
   my $config = $self->plugin('Config');
+
 
 
   # Configure the application
@@ -60,6 +62,8 @@ sub startup {
 
   # Router
   my $r = $self->routes;
+
+  # $self->routes->route("/")->over(mobile=>1)->to("Mobile#index");
 
   $r->any('/')->to('login#index')->name('index');
 

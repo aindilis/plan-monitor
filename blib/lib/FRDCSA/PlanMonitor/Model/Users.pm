@@ -40,7 +40,7 @@ sub setup {
   my ($self, $c, $username) = @_;
   print "Setting up $username\n";
   my $bt;
-  if (1) {
+  if (0) {
     my $parser = FRDCSA::BehaviorTreePlanMonitor::Parser->new();
     my $res1 = $parser->Parse(Files => ['./script/pmparser/test.btpm']);
     if ($res1->{Success}) {
@@ -89,7 +89,9 @@ sub setup {
 
 sub destroy {
   my ($self, $username, $status) = @_;
-  $self->users->{$username}->BTStop();
+  if (defined $username and defined $self->users->{$username}) {
+    $self->users->{$username}->BTStop();
+  }
 }
 
 1;

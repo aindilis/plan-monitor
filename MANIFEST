@@ -12,7 +12,9 @@ lib/FRDCSA/PlanMonitor/Model/Users.pm
 lib/FRDCSA/PlanMonitor/public/index.html
 lib/FRDCSA/PlanMonitor/templates/example/welcome.html.ep
 lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep
+lib/FRDCSA/PlanMonitor/templates/layouts/default-semantic-ui.html.ep
 lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep
+lib/FRDCSA/PlanMonitor/templates/layouts/login-semantic-ui.html.ep
 lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep
 lib/FRDCSA/PlanMonitor/templates/login/index.html.ep
 lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep
