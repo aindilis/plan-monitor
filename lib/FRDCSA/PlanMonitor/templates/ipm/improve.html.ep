@@ -45,9 +45,9 @@
 	    <div class="box box-primary">
 		<div class="box-header">
 		    <span class="alignleft"><b><a href="/logout">Logout</a></b></span>
-		    <span class="alignright"><b><a href="/ipm/improve">Improve</a></b></span>
+		    <span class="alignright"><b><a href="improve">Improve</a></b></span>
 		    <center>
-			<h3 class="box-title"><a href="/ipm/settings">Task Manager</a></h3>
+			<h3 class="box-title"><a href="settings">Task Manager</a></h3>
 			<i class="ion ion-clipboard"></i>
 			<div style="text-align: center;">
 			    <span hidden id="task-name" align="center">No Task Defined</span>

@@ -1,0 +1,25 @@
+% layout 'default';
+% title 'IPM';
+
+<p>
+    <!-- Main row -->
+    <div class="row">
+	<!-- Left col -->
+	<section class="col-lg-6 connectedSortable pull-left">
+	    <!-- TO DO List -->
+	    <div class="box box-primary">
+		<div class="box-header">
+		    <form>
+			<input type="checkbox" id="tts_enabled" name="tts_enabled" value="true">
+			<label for="tts_enabled"> Text To Speech is Enabled</label><br>
+			<input type="checkbox" id="stt_enabled" name="stt_enabled" value="true">
+			<label for="stt_enabled"> Speech To Text is Enabled </label><br>
+		    </form>
+		</div>
+	    </div>
+	    <!-- /.box -->
+	</section>
+	<!-- /.Left col -->
+
+    </div>
+</p>
