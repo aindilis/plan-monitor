@@ -20,7 +20,7 @@ use Mojo::Util qw(secure_compare);
 has 'creds' => sub {
   return
     {
-     aindilis      => 'changeme',
+     aindilis      => '',
     },
   };
 
@@ -31,7 +31,7 @@ sub check {
 
   # Success
   return 1 if $self->creds->{$user} && secure_compare $self->creds->{$user}, $pass;
-
+  return 1 if exists $self->creds->{$user} && $pass eq '' && $self->creds->{$user} eq '';
   # Fail
   return undef;
 }

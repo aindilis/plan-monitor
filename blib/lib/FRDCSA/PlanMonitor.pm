@@ -27,6 +27,7 @@ sub startup {
 
   $self->home(Mojo::Home->new(curfile->sibling('PlanMonitor')));
 
+
   # # https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook
 
   # Switch to installable "public" directory
@@ -48,6 +49,13 @@ sub startup {
   # Configure the application
   $self->secrets($config->{secrets});
   # $self->log->handle(\*STDOUT);
+
+  $self->config
+    (
+     hypnotoad => {
+		   listen => ['https://*:443?cert=/etc/letsencrypt/live/plan.frdcsa.org/fullchain.pem&key=/etc/letsencrypt/live/plan.frdcsa.org/privkey.pem']
+		  },
+    );
 
   # # http://blogs.perl.org/users/joel_berger/2016/03/super-easy-ssl-certs-for-mojolicious-apps.html
 
