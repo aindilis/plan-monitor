@@ -93,6 +93,10 @@
 		 function DoAction(json) {
 		     var taskNameElement = document.getElementById('task-name');
 		     json.name = taskNameElement.textContent;
+		     if (recognizing) {
+			 recognizing = false;
+			 recognition.stop();
+		     }
 		     return JSON.stringify(json);
 		 }
 
@@ -125,22 +129,9 @@
     </div>
 </p>
 
-
-
-
-
-
-
+<!-- ################################################################### -->
 
 <div class="browser-landing" id="main">
-    <div class="compact marquee-stacked" id="marquee">
-	<div class="marquee-copy">
-	    <h1>
-		<a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web
-		    Speech API</a> Demonstration
-	    </h1>
-	</div>
-    </div>
     <div class="compact marquee">
 	<div id="info">
 	    <p id="info_start">
@@ -451,7 +442,7 @@
 		   interim_span.innerHTML = linebreak(interim_transcript);
 		   if (final_transcript || interim_transcript) {
 		       if (final_transcript) {
-			   var re1 = /(done|finish|complete|achieve)/i;
+			   var re1 = /(done|finish|complete|achieve|gun)/i;
 			   if (re1.test(final_transcript) == true) {
 			       final_transcript = '';
 			       ws.send(DoAction(done))
