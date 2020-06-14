@@ -12,9 +12,15 @@ use Data::Dumper;
 
 has 'username';
 has 'tree';
+has 'trees';
 
 sub BTStart {
   my ( $self, %args ) = @_;
+  # choose the tree (randomly for now)
+  my $count = scalar keys %{$self->trees};
+  my $treename = [sort keys %{$self->trees}]->[int(rand($count))];
+  print "Choosing Randomly (for now): $treename\n";
+  $self->tree($self->trees->{$treename});
   if ($args{Controller}) {
     $self->tree->Controller($args{Controller});
   }
