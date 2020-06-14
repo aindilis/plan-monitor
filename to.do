@@ -1,11 +1,17 @@
+(add a button for reporting a problem with the plan)
+(look into voice capture for adding text to the system quickly)
+(set up config to have the secret)
+(get composite nodes to have titles too, and display them
+ correctly somehow)
+(setup parsing of variables if necessary)
+
+
 (for packaging for CPAN:
  (https://metacpan.org/pod/mbtiny)
  (https://metacpan.org/pod/Minilla)
  )
 
 (add acyclic checker from Task1)
-
-(use )
 
 (use https://metacpan.org/pod/Test::Mojo::Role::Selenium if
  needed to test websockets and clicking, etc)

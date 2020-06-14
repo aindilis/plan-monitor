@@ -42,13 +42,15 @@ sub setup {
   my $bts;
   if (1) {
     my $parser = FRDCSA::BehaviorTreePlanMonitor::Parser->new();
-    my $res1;
-    if (1) {
-      $res1 = $parser->Parse(Files => ['./script/pmparser/test.btpm']);
-    } else {
-      # ~/.plan_monitor/test.btpm
-      $res1 = $parser->Parse(Files => [$ENV{HOME}.'/.plan_monitor/test.btpm']);
+    my @files;
+    # ~/.plan_monitor/test.btpm
+    foreach my $file ($ENV{HOME}.'/.plan_monitor/test.btpm','./script/pmparser/test.btpm') {
+      if (-f $file) {
+	push @files, $file;
+	last;
+      }
     }
+    my $res1 = $parser->Parse(Files => \@files);
     if ($res1->{Success}) {
       $bts = $res1->{BehaviorTrees};
     } else {
@@ -59,7 +61,7 @@ sub setup {
 	    'Demo' =>
 	    FRDCSA::BehaviorTreePlanMonitor->new
 	    (
-	     Name => 'Demo',
+	     Name => 'root',
 	     Blackboard => FRDCSA::BehaviorTreePlanMonitor::Blackboard->new(),
 	     Root => FRDCSA::BehaviorTreePlanMonitor::Node::Root->new
 	     (

@@ -69,6 +69,9 @@ sub startup {
 
   my $logged_in = $r->under('/')->to('login#logged_in');
   $logged_in->any(['POST','GET'],'/ipm')->to('ipm#index');
+  $logged_in->any(['POST','GET'],'/ipm/speech')->to('ipm#speech');
+  $logged_in->any(['POST','GET'],'/ipm/speech2')->to('ipm#speech2');
+  $logged_in->any(['POST','GET'],'/ipm/speech3')->to('ipm#speech3');
   # $logged_in->get('/protected')->to('login#protected');
 
   $r->get('/logout')->to('login#logout');

@@ -1,0 +1,126 @@
+% layout 'default';
+% title 'IPM';
+
+<style>
+ .done {
+     background-color: #4CAF50; /* Green */
+     border: none;
+     color: white;
+     padding: 24px 24px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 24px;
+ }
+ .failed {
+     background-color: #AF4C50; /* Red */
+     border: none;
+     color: white;
+     padding: 24px 24px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 24px;
+ }
+</style>
+<p>
+    <!-- 
+	 This page was generated from the template "templates/example/welcome.html.ep"
+	 and the layout "templates/layouts/default.html.ep",
+	 <%= link_to 'click here' => url_for %> to reload the page or
+	 <%= link_to 'here' => '/index.html' %> to move forward to a static page.
+    -->
+
+    <!-- Main row -->
+    <div class="row">
+	<!-- Left col -->
+	<section class="col-lg-6 connectedSortable pull-left">
+	    <!-- TO DO List -->
+	    <div class="box box-primary">
+		<div class="box-header">
+		    <h4><a href="/logout">Logout</a></h4>
+		    <center>
+			<h3 class="box-title">Task Manager</h3>
+			<i class="ion ion-clipboard"></i>
+			<div style="text-align: center;">
+			    <span hidden id="task-name" align="center">No Task Defined</span>
+			    <h1><span id="task-description" align="center">No Task Defined</span></h1><br>
+			    <script>
+			     var done = {"action":"update","value":"done"};
+			     var failed = {"action":"update","value":"failed"};
+			     var skipped = {"action":"update","value":"skipped"};
+			     var postponed = {"action":"update","value":"postponed"};
+			    </script>
+			    <button name="user-response" value="done" id="search-btn" class="btn btn-flat done" onclick="ws.send(DoAction(done))">Done</button>
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    <button name="user-response" value="failed" id="search-btn" class="btn btn-flat failed" onclick="ws.send(DoAction(failed))">Failed</button>
+			</div>
+		    </center>
+		</div>
+	    </div>
+	    <div>
+		<script>
+		 var ws = new WebSocket('<%= url_for('act')->to_abs %>');
+
+
+		 // Incoming messages
+		 ws.onmessage = function (event) {
+		     var re1 = /Log: /;
+		     if (re1.test(event.data) == true) {
+			 document.body.innerHTML += event.data + '<br/>';
+		     }
+		     var re2 = /JSON: /;
+		     if (re2.test(event.data) == true) {
+			 var re3 = /JSON: (.+)/;
+			 var array = re3.exec(event.data);
+			 var message = JSON.parse(array[1]);
+			 var taskNameElement = document.getElementById('task-name');
+			 taskNameElement.textContent = message.Name;
+			 var taskDescriptionElement = document.getElementById('task-description');
+			 taskDescriptionElement.textContent = message.Description;
+			 Speak(message.Description);
+		     }
+		 }
+		 ;
+
+		 var startupmessage = {"action":"startup"};
+		 // Outgoing messages
+		 ws.onopen = function (event) {
+		     ws.send(JSON.stringify(startupmessage))
+		 }
+		 ;
+
+		 function DoAction(json) {
+		     var taskNameElement = document.getElementById('task-name');
+		     json.name = taskNameElement.textContent;
+		     return JSON.stringify(json);
+		 }
+
+		 function Speak(text, callback) {
+		     var u = new SpeechSynthesisUtterance();
+		     u.text = text;
+		     u.lang = 'en-US';
+
+		     u.onend = function () {
+			 if (callback) {
+			     callback();
+			 }
+		     };
+
+		     u.onerror = function (e) {
+			 if (callback) {
+			     callback(e);
+			 }
+		     };
+
+		     speechSynthesis.speak(u);
+		 }
+		</script>
+	    </div>
+
+	    <!-- /.box -->
+	</section>
+	<!-- /.Left col -->
+
+    </div>
+</p>

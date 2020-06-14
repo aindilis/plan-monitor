@@ -1,3 +1,7 @@
+root ->
+	ensure_through_door
+	.
+
 ensure_through_door ->
 	walk_to_door,
 	ensure_door_open,

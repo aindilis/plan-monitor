@@ -18,7 +18,8 @@ sub BTStart {
   my ( $self, %args ) = @_;
   # choose the tree (randomly for now)
   my $count = scalar keys %{$self->trees};
-  my $treename = [sort keys %{$self->trees}]->[int(rand($count))];
+  # my $treename = [sort keys %{$self->trees}]->[int(rand($count))];
+  my $treename = 'root';
   print "Choosing Randomly (for now): $treename\n";
   $self->tree($self->trees->{$treename});
   if ($args{Controller}) {

@@ -195,9 +195,9 @@ TO_INST_PM = lib/FRDCSA/PlanMonitor.pm \
 	lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf \
 	lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf \
 	lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep \
-	lib/FRDCSA/PlanMonitor/templates/layouts/default-semantic-ui.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep \
-	lib/FRDCSA/PlanMonitor/templates/layouts/login-semantic-ui.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/layouts/ipm_speech.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/login/index.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep
@@ -893,9 +893,9 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  'lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf' 'blib/lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf' \
 	  'lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf' 'blib/lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf' \
 	  'lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep' \
-	  'lib/FRDCSA/PlanMonitor/templates/layouts/default-semantic-ui.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/default-semantic-ui.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' \
-	  'lib/FRDCSA/PlanMonitor/templates/layouts/login-semantic-ui.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/login-semantic-ui.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/layouts/ipm_speech.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/ipm_speech.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/login/index.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/login/index.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep' 

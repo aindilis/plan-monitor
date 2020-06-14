@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="no-js consumer" lang="en">
+  <head>
+
+    <script nonce="Ajzkw97oqw98CWN2T4WxEQ">
+(function(e, p){
+    var m = location.href.match(/platform=(win8|win|mac|linux|cros)/);
+    e.id = (m && m[1]) ||
+           (p.indexOf('Windows NT 6.2') > -1 ? 'win8' : p.indexOf('Windows') > -1 ? 'win' : p.indexOf('Mac') > -1 ? 'mac' : p.indexOf('CrOS') > -1 ? 'cros' : 'linux');
+    e.className = e.className.replace(/\bno-js\b/,'js');
+  })(document.documentElement, window.navigator.userAgent)
+    </script>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+    <meta content=
+    "Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier."
+    name="description">
+    <title>
+      <%= title %>
+    </title>
+    <link href="https://plus.google.com/100585555255542998765" rel="publisher">
+    <link href="//www.google.com/images/icons/product/chrome-32.png" rel="icon" type="image/ico">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel=
+    "stylesheet" nonce="Ajzkw97oqw98CWN2T4WxEQ">
+    <link href="/intl/en/chrome/assets/common/css/chrome.min.css" rel="stylesheet" nonce="Ajzkw97oqw98CWN2T4WxEQ">
+    <script src="//www.google.com/js/gweb/analytics/autotrack.js" nonce="Ajzkw97oqw98CWN2T4WxEQ">
+</script>
+    <script nonce="Ajzkw97oqw98CWN2T4WxEQ">
+new gweb.analytics.AutoTrack({
+          profile: 'UA-26908291-1'
+        });
+    </script>
+    <style>
+#info {
+    font-size: 20px;
+    }
+    #div_start {
+    float: right;
+    }
+    #headline {
+    text-decoration: none
+    }
+    #results {
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+    min-height: 150px;
+    }
+    #start_button {
+    border: 0;
+    background-color:transparent;
+    padding: 0;
+    }
+    .interim {
+    color: gray;
+    }
+    .final {
+    color: black;
+    padding-right: 3px;
+    }
+    .button {
+    display: none;
+    }
+    .marquee {
+    margin: 20px auto;
+    }
+
+    #buttons {
+    margin: 10px 0;
+    position: relative;
+    top: -50px;
+    }
+
+    #copy {
+    margin-top: 20px;
+    }
+
+    #copy > div {
+    display: none;
+    margin: 0 70px;
+    }
+    </style>
+    <style>
+a.c1 {font-weight: normal;}
+    </style>
+  </head>
+  <body class="" id="grid">
+    <%= content %>
+  </body>
+</html>
