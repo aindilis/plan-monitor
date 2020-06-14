@@ -194,8 +194,10 @@ TO_INST_PM = lib/FRDCSA/PlanMonitor.pm \
 	lib/FRDCSA/PlanMonitor/Model/Users.pm \
 	lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf \
 	lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf \
+	lib/FRDCSA/PlanMonitor/templates/ipm/improve.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/ipm/settings.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/layouts/ipm_speech.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep \
@@ -892,8 +894,10 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  'lib/FRDCSA/PlanMonitor/Model/Users.pm' 'blib/lib/FRDCSA/PlanMonitor/Model/Users.pm' \
 	  'lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf' 'blib/lib/FRDCSA/PlanMonitor/behavior-tree-task-manager-for-covid-19.pdf' \
 	  'lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf' 'blib/lib/FRDCSA/PlanMonitor/f_r_d_c_s_a-plan_monitor.conf' \
+	  'lib/FRDCSA/PlanMonitor/templates/ipm/improve.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/improve.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/ipm/settings.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/settings.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/layouts/ipm_speech.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/ipm_speech.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep' \

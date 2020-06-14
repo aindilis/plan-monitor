@@ -1,0 +1,21 @@
+<!-- from https://stephenwalther.com/archive/2015/01/05/using-html5-speech-recognition-and-text-to-speech -->
+
+		 function Speak(text, callback) {
+		     var u = new SpeechSynthesisUtterance();
+		     u.text = text;
+		     u.lang = 'en-US';
+
+		     u.onend = function () {
+			 if (callback) {
+			     callback();
+			 }
+		     };
+
+		     u.onerror = function (e) {
+			 if (callback) {
+			     callback(e);
+			 }
+		     };
+
+		     speechSynthesis.speak(u);
+		 }
