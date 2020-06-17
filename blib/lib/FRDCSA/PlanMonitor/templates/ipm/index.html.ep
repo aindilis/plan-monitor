@@ -1,4 +1,4 @@
-% layout 'webspeechdemo';
+% layout 'speech';
 % title 'IPM';
 
 <style>
@@ -67,8 +67,8 @@
 	    </div>
 	    <div>
 		<script>
-		 var stt_enabled = 1;
-		 var tts_enabled = 1;
+		 var stt_enabled = <% if (1) { %>1<% } else { %>0<% } %>;
+		 var tts_enabled = <% if (1) { %>1<% } else { %>0<% } %>;
 		 var ws = new WebSocket('<%= url_for('act')->to_abs %>');
 
 		 // Incoming messages
@@ -112,7 +112,7 @@
 		     return JSON.stringify(json);
 		 }
 
-		 %= include '/ipm/speechapi'
+		 %= include '/ipm/tts'
 		</script>
 	    </div>
 
@@ -123,6 +123,6 @@
     </div>
 </p>
 
-%= include '/ipm/webspeechdemo'
+%= include '/ipm/stt'
 
 <div id="log"></div>

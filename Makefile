@@ -198,11 +198,11 @@ TO_INST_PM = lib/FRDCSA/PlanMonitor.pm \
 	lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/ipm/settings.html.ep \
-	lib/FRDCSA/PlanMonitor/templates/ipm/speechapi.html.ep \
-	lib/FRDCSA/PlanMonitor/templates/ipm/webspeechdemo.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/ipm/stt.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/ipm/tts.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep \
-	lib/FRDCSA/PlanMonitor/templates/layouts/webspeechdemo.html.ep \
+	lib/FRDCSA/PlanMonitor/templates/layouts/speech.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/login/index.html.ep \
 	lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep
 
@@ -900,11 +900,11 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  'lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/ipm/settings.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/settings.html.ep' \
-	  'lib/FRDCSA/PlanMonitor/templates/ipm/speechapi.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/speechapi.html.ep' \
-	  'lib/FRDCSA/PlanMonitor/templates/ipm/webspeechdemo.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/webspeechdemo.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/ipm/stt.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/stt.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/ipm/tts.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/ipm/tts.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep' \
-	  'lib/FRDCSA/PlanMonitor/templates/layouts/webspeechdemo.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/webspeechdemo.html.ep' \
+	  'lib/FRDCSA/PlanMonitor/templates/layouts/speech.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/layouts/speech.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/login/index.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/login/index.html.ep' \
 	  'lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep' 'blib/lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep' 
 	$(NOECHO) $(TOUCH) pm_to_blib

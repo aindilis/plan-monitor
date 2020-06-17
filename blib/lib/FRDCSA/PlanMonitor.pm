@@ -4,6 +4,8 @@ use Mojo::Base 'Mojolicious';
 use Mojo::File qw(curfile);
 use Mojo::Home;
 
+use Mojolicious::Plugin::BrowserDetect;
+
 use FRDCSA::PlanMonitor::Model::Users;
 
 use Data::Dumper;
@@ -39,12 +41,11 @@ sub startup {
   # Exclude author commands
   $self->commands->namespaces(['Mojolicious::Commands']);
 
+  # $self->plugin('Mobi');
+  $self->plugin('browser_detect');
 
   # Load configuration from hash returned by config file
-  $self->plugin('Mobi');
   my $config = $self->plugin('Config');
-
-
 
   # Configure the application
   $self->secrets($config->{secrets});

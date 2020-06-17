@@ -1,3 +1,7 @@
+(plan-monitor
+ (add comment syntax to BTPM)
+ )
+
 (add a button for reporting a problem with the plan)
 (look into voice capture for adding text to the system quickly)
 (set up config to have the secret)
