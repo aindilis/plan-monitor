@@ -35,12 +35,16 @@ sub index {
        if ($hash->{action} eq 'startup') {
 	 $c->send('Log: '.$hash->{action});
 	 $c->users->users->{$c->session->{user}}->BTStart(Controller => $c);
+       } elsif ($hash->{action} eq 'search') {
+	 $c->send('Log: '.$hash->{action}.':'.$hash->{value});
+	 $c->users->users->{$c->session->{user}}->BTSearch(Controller => $c, Text => $hash->{value});
        } elsif (defined $hash->{action}) {
 	 $c->send('Log: '.$hash->{action}.':'.$hash->{value});
 	 # now process the action
 	 $c->users->users->{$c->session->{user}}->tree->Nodes->{$hash->{name}}->UserFeedback($hash);
 	 $c->users->users->{$c->session->{user}}->tree->Root->Tick();
        } else {
+
 	 # $c->send();
        }
      });

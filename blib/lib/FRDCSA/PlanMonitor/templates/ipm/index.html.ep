@@ -112,6 +112,11 @@
 		     return JSON.stringify(json);
 		 }
 
+		 function DoBTSearch(text) {
+		     var json = {'action':'search','value':text};
+		     return JSON.stringify(json);
+		 }
+
 		 %= include '/ipm/tts'
 		</script>
 	    </div>

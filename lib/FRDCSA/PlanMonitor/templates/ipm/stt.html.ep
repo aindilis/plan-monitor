@@ -283,6 +283,11 @@
 		 final_transcript = '';
 		 ws.send(DoAction(failed))
 	     }
+	     var re2 = /\b(search\b|find\b|lookup\b|do\b|run\b|load\b)/i;
+	     if (re2.test(final_transcript) == true) {
+		 ws.send(DoBTSearch(final_transcript))
+		 final_transcript = '';
+	     }
 	 }
      };
 
