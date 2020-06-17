@@ -67,8 +67,8 @@
 	    </div>
 	    <div>
 		<script>
-		 var stt_enabled = <% if (1) { %>1<% } else { %>0<% } %>;
-		 var tts_enabled = <% if (1) { %>1<% } else { %>0<% } %>;
+		 var stt_enabled = <% if ($c->browser->browser() eq 'chrome') { %>1<% } else { %>0<% } %>;
+		 var tts_enabled = <% if ($c->browser->browser() eq 'chrome') { %>1<% } else { %>0<% } %>;
 		 var ws = new WebSocket('<%= url_for('act')->to_abs %>');
 
 		 // Incoming messages

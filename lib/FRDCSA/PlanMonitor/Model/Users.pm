@@ -14,6 +14,7 @@ use FRDCSA::BehaviorTreePlanMonitor::Node::Selector;
 use FRDCSA::BehaviorTreePlanMonitor::Node::UserTask;
 
 use Data::Dumper;
+use File::Find;
 
 use Mojo::Util qw(secure_compare);
 
@@ -43,12 +44,8 @@ sub setup {
   if (1) {
     my $parser = FRDCSA::BehaviorTreePlanMonitor::Parser->new();
     my @files;
-    # ~/.plan_monitor/test.btpm
-    foreach my $file ($ENV{HOME}.'/.plan_monitor/test.btpm','./script/pmparser/test.btpm') {
-      if (-f $file) {
-	push @files, $file;
-	last;
-      }
+    foreach my $dir ($ENV{HOME}.'/.plan_monitor','./script/pmparser') {
+      find({ wanted => sub {if ($File::Find::name =~ /\.btpm$/) { push @files, $File::Find::name; }}, follow => 1}, ($dir));
     }
     my $res1 = $parser->Parse(Files => \@files);
     if ($res1->{Success}) {

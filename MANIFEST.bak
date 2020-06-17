@@ -16,12 +16,15 @@ lib/FRDCSA/PlanMonitor/templates/ipm/index.html.ep
 lib/FRDCSA/PlanMonitor/templates/ipm/index_orig.html.ep
 lib/FRDCSA/PlanMonitor/templates/ipm/settings.html.ep
 lib/FRDCSA/PlanMonitor/templates/ipm/speechapi.html.ep
+lib/FRDCSA/PlanMonitor/templates/ipm/stt.html.ep
+lib/FRDCSA/PlanMonitor/templates/ipm/tts.html.ep
 lib/FRDCSA/PlanMonitor/templates/ipm/webspeechdemo.html.ep
 lib/FRDCSA/PlanMonitor/templates/layouts/default-semantic-ui.html.ep
 lib/FRDCSA/PlanMonitor/templates/layouts/default.html.ep
 lib/FRDCSA/PlanMonitor/templates/layouts/ipm_speech.html.ep
 lib/FRDCSA/PlanMonitor/templates/layouts/login-semantic-ui.html.ep
 lib/FRDCSA/PlanMonitor/templates/layouts/login.html.ep
+lib/FRDCSA/PlanMonitor/templates/layouts/speech.html.ep
 lib/FRDCSA/PlanMonitor/templates/layouts/webspeechdemo.html.ep
 lib/FRDCSA/PlanMonitor/templates/login/index.html.ep
 lib/FRDCSA/PlanMonitor/templates/login/protected.html.ep
