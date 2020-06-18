@@ -30,13 +30,6 @@
  }
 </style>
 <p>
-    <!-- 
-	 This page was generated from the template "templates/example/welcome.html.ep"
-	 and the layout "templates/layouts/default.html.ep",
-	 <%= link_to 'click here' => url_for %> to reload the page or
-	 <%= link_to 'here' => '/index.html' %> to move forward to a static page.
-    -->
-
     <!-- Main row -->
     <div class="row">
 	<!-- Left col -->
@@ -50,6 +43,7 @@
 			<h3 class="box-title"><a href="/ipm/settings">Task Manager</a></h3>
 			<i class="ion ion-clipboard"></i>
 			<div style="text-align: center;">
+			    <span id="task-path" align="center">No Task Defined</span>
 			    <span hidden id="task-name" align="center">No Task Defined</span>
 			    <h1><span id="task-description" align="center">No Task Defined</span></h1>
 			    <script>
@@ -58,9 +52,9 @@
 			     var skipped = {"action":"update","value":"skipped"};
 			     var postponed = {"action":"update","value":"postponed"};
 			    </script>
-			    <button name="user-response" value="done" id="search-btn" class="btn btn-flat done" onclick="ws.send(DoAction(done))">Done</button>
+			    <button name="user-response" value="done" id="search-btn" class="btn btn-flat done" onclick="ws.send(DoAction(done));updateNoSleepTimer();">Done</button>
 			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			    <button name="user-response" value="failed" id="search-btn" class="btn btn-flat failed" onclick="ws.send(DoAction(failed))">Failed</button>
+			    <button name="user-response" value="failed" id="search-btn" class="btn btn-flat failed" onclick="ws.send(DoAction(failed));updateNoSleepTimer();">Failed</button>
 			</div>
 		    </center>
 		</div>
@@ -86,12 +80,20 @@
 			 taskNameElement.textContent = message.Name;
 			 var taskDescriptionElement = document.getElementById('task-description');
 			 taskDescriptionElement.textContent = message.Description;
+
+			 if (message['Path']) {
+			     var taskPathElement = document.getElementById('task-path');
+			     message.Path.pop();
+			     taskPathElement.innerHTML = message.Path.join("<br>\n");
+			 }
+
 			 if (tts_enabled) {
 			     Speak(message.Description, function(e) { startButton(event); });
 			 } else {
 			     startButton(event);
 			 }
 		     }
+		     updateNoSleepTimer();
 		 }
 		 ;
 
@@ -118,6 +120,38 @@
 		 }
 
 		 %= include '/ipm/tts'
+		</script>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/nosleep/0.11.0/NoSleep.min.js"></script>
+
+		<script>
+		 // From: https://davidwalsh.name/wake-lock-shim
+		 // import NoSleep; //  from 'NoSleep.min.js';
+		 var noSleep = new NoSleep();
+		 
+		 function enableNoSleep() {
+		     noSleep.enable();
+		     window.removeEventListener('load', enableNoSleep, false);
+		 }
+		 
+		 window.addEventListener('load', enableNoSleep, false);
+		</script>
+
+		<script>
+		 // from https://www.w3schools.com/jsref/met_win_cleartimeout.asp		    
+		 var noSleepTimer;
+		 var noSleepTimerTimeout = 5.0; // minutes
+
+		 function startNoSleepTimer() {
+		     noSleepTimer = setTimeout(function(){ noSleep.disable(); }, noSleepTimerTimeout * 60000);
+		 }
+
+		 function updateNoSleepTimer() {
+		     clearTimeout(noSleepTimer);
+		     startNoSleepTimer();
+		 }
+
+		 startNoSleepTimer();
 		</script>
 	    </div>
 

@@ -277,16 +277,19 @@
 	     if (re1.test(final_transcript) == true) {
 		 final_transcript = '';
 		 ws.send(DoAction(done))
+		 updateNoSleepTimer();
 	     }
 	     var re2 = /\b(fail|cancel|stop|abort|postpone|false\b|no\b)/i;
 	     if (re2.test(final_transcript) == true) {
 		 final_transcript = '';
 		 ws.send(DoAction(failed))
+		 updateNoSleepTimer();
 	     }
 	     var re2 = /\b(search\b|find\b|lookup\b|do\b|run\b|load\b)/i;
 	     if (re2.test(final_transcript) == true) {
 		 ws.send(DoBTSearch(final_transcript))
 		 final_transcript = '';
+		 updateNoSleepTimer();
 	     }
 	 }
      };

@@ -1,14 +1,20 @@
-(plan-monitor
- (add comment syntax to BTPM)
+(implement better password management and implement the ability to have sessions by cookie
+ (Mojolicious::Plugin::Authentication)
  )
+(completed
+ (add comment syntax to BTPM))
 
-(add a button for reporting a problem with the plan)
-(look into voice capture for adding text to the system quickly)
+(add a button, and a voice command, for reporting a problem with the plan)
+
+(completed
+ (look into voice capture for adding text to the system
+  quickly))
+
 (set up config to have the secret)
 (get composite nodes to have titles too, and display them
  correctly somehow)
-(setup parsing of variables if necessary)
 
+(setup parsing of variables if necessary)
 
 (for packaging for CPAN:
  (https://metacpan.org/pod/mbtiny)
@@ -21,7 +27,8 @@
  needed to test websockets and clicking, etc)
 
 (https://metacpan.org/pod/Mojolicious::Plugin::Mobi)
-(https://metacpan.org/pod/Mojolicious::Plugin::BrowserDetect)
+(completed
+ (https://metacpan.org/pod/Mojolicious::Plugin::BrowserDetect))
 
 (make sounds play when there are push notifications, however we
  can do that)

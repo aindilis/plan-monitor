@@ -1,4 +1,5 @@
 (add-to-list 'auto-mode-alist '("\\.btpm\\'" . plan-monitor-mode))
+(add-to-list 'auto-mode-alist '("\\.ep\\'" . web-mode))
 
 ;; Derived from simgen-bt-mode, hence includes some features not yet present in Plan Monitor mode
 

@@ -44,7 +44,6 @@ sub index {
 	 $c->users->users->{$c->session->{user}}->tree->Nodes->{$hash->{name}}->UserFeedback($hash);
 	 $c->users->users->{$c->session->{user}}->tree->Root->Tick();
        } else {
-
 	 # $c->send();
        }
      });

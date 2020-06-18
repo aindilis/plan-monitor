@@ -36,11 +36,11 @@
 	<title>
 	    <%= title %>
 	</title>
-	<link href="https://plus.google.com/100585555255542998765" rel="publisher">
+	<link href="//plus.google.com/100585555255542998765" rel="publisher">
 	<link href="//www.google.com/images/icons/product/chrome-32.png" rel="icon" type="image/ico">
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel=
 	      "stylesheet" nonce="Ajzkw97oqw98CWN2T4WxEQ">
-	<link href="/intl/en/chrome/assets/common/css/chrome.min.css" rel="stylesheet" nonce="Ajzkw97oqw98CWN2T4WxEQ">
+	<link href="//www.google.com/intl/en/chrome/assets/common/css/chrome.min.css" rel="stylesheet" nonce="Ajzkw97oqw98CWN2T4WxEQ">
 	<script src="//www.google.com/js/gweb/analytics/autotrack.js" nonce="Ajzkw97oqw98CWN2T4WxEQ">
 	</script>
 	<script nonce="Ajzkw97oqw98CWN2T4WxEQ">
