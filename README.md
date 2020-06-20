@@ -30,6 +30,10 @@ Here are the links from that paper:
 
 https://frdcsa.org/bts-covid-19/links.html
 
+Here is a more recent video (at the time of writing):
+
+https://frdcsa.org/~andrewdo/projects/plan-monitor-voice.webm
+
 And here is a video of an earlier version in action:
 
 https://frdcsa.org/~andrewdo/projects/plan-monitor.webm
